@@ -40,8 +40,8 @@ python3 spotify_to_mp3.py
 ```
 This will start an interactive version of the script that will prompt you to enter the download path, your client id, your client secret key and finally the spotify username that has the playlists to download.
 
-you can also run the program using positional arguments like so
+you can also run the program using command line arguments like so
 ```
-python3 spotify_to_mp3.py <main download path for the mp3 folders> <your spotify client id> <your spotify secret key> <the spotify user name>
+python3 spotify_to_mp3.py --path <download path for the mp3 folders> --id  <spotify client id> --key  <spotify secret key> --uname <the spotify user name>
 ```
 
