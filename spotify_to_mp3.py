@@ -3,14 +3,22 @@ from spotipy.oauth2 import SpotifyClientCredentials
 from youtubesearchpython import *
 import os
 from pytube import YouTube
+import sys
 
-print("\n----- Welcome! -----\n")
-print("To get started please input some details")
-path = input("\n1. Please enter the directory path for the playlist folders:")
-client_id = input("2. Please enter your spotify PREMIUM client id:")
-client_sec = input("3. Please enter your spotify PREMIUM secret key:")
-print("\nGreat, thank you.")
-user_name = input("Now please enter the user ID you want to fetch playlists for (The download will start automatically):")
+try:
+	script_name = sys.argv[0]
+	path_input = sys.argv[1]
+	client_id = sys.argv[2]
+	client_sec = sys.argv[3]
+	user_name = sys.argv[4]
+except:
+	print("\n----- Welcome! -----\n")
+	print("To get started please input some details")
+	path = input("\n1. Please enter the directory path for the playlist folders:")
+	client_id = input("2. Please enter your spotify PREMIUM client id:")
+	client_sec = input("3. Please enter your spotify PREMIUM secret key:")
+	print("\nGreat, thank you.")
+	user_name = input("Now please enter the user ID you want to fetch playlists for (The download will start automatically):")
 
 auth_manager = SpotifyClientCredentials(client_id, client_sec)
 sp = spotipy.Spotify(auth_manager=auth_manager)
