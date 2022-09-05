@@ -35,11 +35,11 @@ def you_tube_downloader(url, path):
     print("Done")
 
 while playlists:
-    for i, playlist in enumerate(playlists['items']):
+    for playlist in enumerate(playlists['items']):
         print(("PLAY LIST: " + playlist['name']))
         playlist_path = path + "/" + playlist['name']
         playlist_details = sp.playlist_items(playlist['uri'], fields=None, limit=100, offset=0, market=None)
-        for i2, playlist_detail in enumerate(playlist_details['items']):
+        for playlist_detail in enumerate(playlist_details['items']):
             try:
                 artist_var = playlist_detail['track']['artists'][0]['name']
                 song_var = playlist_detail['track']['name']
