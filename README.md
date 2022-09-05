@@ -1,9 +1,10 @@
 # Introduction
 
 This project is intended to help you download spotify user playlists as mp3 files.
+
 The song names are exatrcted using the spotify api and then loacted and downloaded from youtube as mp3 files.
 
-* To run this project you will need to have a paid spotify account
+* To run this project you will need to have a spotify PREMIUM account
 
 # Installation
 
@@ -21,15 +22,15 @@ To use the program you will need your spotify client id and your spotify secret 
 
 To get them, follow these steps:
 
-Browse to https://developer.spotify.com/dashboard/applications.
+Go to https://developer.spotify.com/dashboard/applications.
 
-1.Log in with your Spotify account.
+1. Log into your Spotify account.
 
-2.Click on ‘Create an app’.
+2. Click on ‘Create an app’.
 
-3.Pick an ‘App name’ and ‘App description’ of your choice and mark the checkboxes.
+3. Enter an ‘App name’ and an ‘App description’ and mark the checkboxes.
 
-4.After creation, you see your ‘Client Id’ and you can click on ‘Show client secret` to unhide your ’Client secret’.
+4. After the app is created you will see your ‘Client Id’. Then can click on ‘Show client secret` to reveal your ’Client secret key’.
 
 * The spotify user name can be located in the the url for the user's main page for example, https://open.spotify.com/user/<user name>
 
