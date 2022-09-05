@@ -5,7 +5,6 @@ The song names are exatrcted using the spotify api and then loacted and download
 
 * To run this project you will need to have a paid spotify account
 
-
 # Installation
 
 First clone the project
@@ -16,8 +15,7 @@ Next install the required packages
 ```
 pip3 install --user -r requirements.txt
 ```
-
-#Spotify Auth
+# Spotify Auth
 
 To use the program you will need your spotify client id and your spotify secret key to be able to access the spotify api.
 
@@ -33,9 +31,7 @@ Browse to https://developer.spotify.com/dashboard/applications.
 
 4.After creation, you see your ‘Client Id’ and you can click on ‘Show client secret` to unhide your ’Client secret’.
 
-
 * The spotify user name can be located in the the url for the user's main page for example, https://open.spotify.com/user/<user name>
-
 
 # Run
 There are 2 ways to run the program. If you do
