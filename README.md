@@ -1,4 +1,4 @@
-# Introduction
+#> Introduction
 
 This project is intended to help you download spotify user playlists as mp3 files.
 
@@ -6,7 +6,9 @@ The song names are exatrcted using the spotify api and then loacted and download
 
 * To run this project you will need to have a spotify PREMIUM account
 
-# Installation
+---
+
+#> Installation
 
 First clone the project
 ```
@@ -16,7 +18,9 @@ Next install the required packages
 ```
 pip3 install --user -r requirements.txt
 ```
-# Spotify Auth
+---
+
+#> Spotify Auth
 
 To use the program you will need your spotify client id and your spotify secret key to be able to access the spotify api.
 
@@ -34,7 +38,9 @@ Go to https://developer.spotify.com/dashboard/applications.
 
 * The spotify user name can be located in the the url for the user's main page for example, https://open.spotify.com/user/<user name>
 
-# Run
+---
+
+#> Run
 There are 2 ways to run the program. If you do
 ```
 python3 spotify_to_mp3.py
@@ -45,4 +51,3 @@ you can also run the program using command line arguments like so
 ```
 python3 spotify_to_mp3.py --path <download path for the mp3 folders> --id  <spotify client id> --key  <spotify secret key> --uname <the spotify user name>
 ```
-
