@@ -88,7 +88,7 @@ while playlists:
                 print(customSearch.result()['result'][0]['link'])
                 you_tube_downloader(song_url, playlist_path)
             except:
-                print("could not download: " + artist_var + " song: " + song_var)
+                print("could not download song")
     if playlists['next']:
         playlists = sp.next(playlists)
     else:
