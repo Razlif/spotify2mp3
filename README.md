@@ -6,7 +6,6 @@ The song names are exatrcted using the spotify api and then loacted and download
 
 * To run this project you will need to have a paid spotify account in order to get your the client id and api key.
 
----
 
 # Installation
 
@@ -18,7 +17,6 @@ Next install the required packages
 ```
 pip3 install --user -r requirements.txt
 ```
----
 
 # Spotify Credentials
 
@@ -36,42 +34,49 @@ Go to the [spotify developer section](https://developer.spotify.com/dashboard/ap
 
 4. After the app is created you will see your ‘Client Id’. Then can click on ‘Show client secret` to reveal your ’Client secret key’.
 
-* The spotify user name can be located in the the url for the user's main page for example, https://open.spotify.com/user/<user name>
+* The spotify user name can be located in the the url for the user's main page for example, https://open.spotify.com/user/< user >
 
----
 
 # Setting up enviroment variables
 
 Next edit the .env file in the project folder and include the spotify credentials.
+.env
 ```
 SPOTIFY_SECRET = "Your spotify secret key"
 SPOTIFY_CLIENT = "Your spotify client ID"
 ```
 
-# Running the python script directly
+# Running the script on a single user
 
 Now you can run the python script directly from the command line
 ```
 python3 spotify_to_mp3.py
 ```
-This will start an interactive version of the script that will prompt you to enter the download path and the spotify username that has the playlists to download.
+This will prompt you to enter the download path and the spotify username that has the playlists to download.
 
-you can also input the arguments directly in the run command:
+you can also input the arguments directly in the command line:
 ```
 python3 spotify_to_mp3.py --path <download path for the mp3 folders> --uname <the spotify user name>
 ```
 
-# Running the scrip on multiple users from the users.txt file
+# Running the script on multiple users
 
 You can also run the script on multiple users at one time.
 
 Simply update the users.txt file with a list of users to download from.
 >make sure to add each user name in a new line
+users.txt
+```
+ExampleUser1
+ExampleUser2
+...
+```
 
-next run mark the main.sh file executable and run the script from the command line:
+next mark the main.sh file as executable and run it from the command line:
+>Make sure to include the main download path as the first positional argument
 ```
 $ chmod +x main.sh
 $ ./main.sh <main download path>
 ```
->Make sure to include the main download path as the first positional argument
-Have Fun!
+
+# Have Fun!
