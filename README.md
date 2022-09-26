@@ -2,9 +2,9 @@
 
 This project is intended to help you download spotify user playlists as mp3 files.
 
-The song names are exatrcted using the spotify api and then loacted and downloaded from youtube as mp3 files.
+The song names are extracted using the spotify api and then located and downloaded from youtube as mp3 files.
 
-* To run this project you will need to have a paid spotify account in order to get your the client id and api key.
+* To run this project you will need to have a paid spotify account in order to get your client id and api key.
 
 
 # Installation
@@ -37,7 +37,7 @@ Go to the [spotify developer section](https://developer.spotify.com/dashboard/ap
 * The spotify user name can be located in the the url for the user's main page for example, https://open.spotify.com/user/< user >
 
 
-# Setting up enviroment variables
+# Setting up environment variables
 
 Next edit the .env file in the project folder and include the spotify credentials.
 .env
@@ -56,7 +56,7 @@ This will prompt you to enter the download path and the spotify username that ha
 
 you can also input the arguments directly in the command line:
 ```
-python3 spotify_to_mp3.py --path <download path for the mp3 folders> --uname <the spotify user name>
+python3 spotify_to_mp3.py --path <download path for the mp3 folders> --uname <the spotify username>
 ```
 
 # Running the script on multiple users
