@@ -34,13 +34,14 @@ Go to the [spotify developer section](https://developer.spotify.com/dashboard/ap
 
 4. After the app is created you will see your ‘Client Id’. Then can click on ‘Show client secret` to reveal your ’Client secret key’.
 
-* The spotify user name can be located in the the url for the user's main page for example, https://open.spotify.com/user/< user >
+* The spotify user name can be located in the the url for the user's main page for example, https://open.spotify.com/user/< user name >
 
 
 # Setting up environment variables
 
 Next edit the .env file in the project folder and include the spotify credentials.
-.env
+
+.env:
 ```
 SPOTIFY_SECRET = "Your spotify secret key"
 SPOTIFY_CLIENT = "Your spotify client ID"
@@ -65,7 +66,8 @@ You can also run the script on multiple users at one time.
 
 Simply update the users.txt file with a list of users to download from.
 >make sure to add each user name in a new line
-users.txt
+
+users.txt:
 ```
 ExampleUser1
 ExampleUser2
