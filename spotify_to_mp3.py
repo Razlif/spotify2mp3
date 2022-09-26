@@ -10,6 +10,7 @@ import os
 from pytube import YouTube
 import sys
 import argparse
+from dotenv import load_dotenv, find_dotenv
 
 
 
@@ -32,25 +33,19 @@ def you_tube_downloader(url, path):
 #     Getting arguments    #
 ############################
 
-parser = argparse.ArgumentParser(description='If you are having problems running the script please go over the README file and make sure you have installed the necessary packages in the requirments.txt file. If you are sending arguments through the command line make sure they are correct. Example: $ python3 spotify_to_mp3.py --path <download path for the mp3 folders> --id <spotify client id> --key <spotify secret key> --uname <the spotify user name>')
+script_name = sys.argv[0]
+parser = argparse.ArgumentParser(description='If you are having problems running the script please go over the README file, make sure you have installed the necessary packages in the requirments.txt file and make sure you have updated the keys.env file with the correct credentials. Command line example: $ python3 spotify_to_mp3.py --path <download path for the mp3 folders> --uname <the spotify user name>')
 parser.add_argument("--path", help="The path for the downloaded playlis folders", default='None')
-parser.add_argument("--id", help="The spotify client id ", default='None')
-parser.add_argument("--key", help="The spotify app secert key", default='None')
 parser.add_argument("--uname", help="The spotify username to download playlists from", default='None')
 args = parser.parse_args()
-script_name = sys.argv[0]
 path = args.path
-client_id = args.id
-client_sec = args.key
 user_name = args.uname
-if path=="None":
+if path == "None":
 	print("\n----- Welcome! -----\n")
 	print("To get started please input some details")
-	path = input("\n1. Please enter the directory path for the playlist folders:")
-	client_id = input("2. Please enter your spotify PREMIUM client id:")
-	client_sec = input("3. Please enter your spotify PREMIUM secret key:")
+	path = input("\n1. Please enter the directory path for the downloads:")
 	print("\nGreat, thank you.")
-	user_name = input("Now please enter the user ID you want to fetch playlists for (The download will start automatically):")
+	user_name = input("Now please enter the user name you want to fetch playlists for (The download will start automatically):")
 
 
 
@@ -59,10 +54,13 @@ if path=="None":
 #   Connecting to Spotify api    #
 ##################################
 
+load_dotenv(find_dotenv())
+client_sec = os.environ.get('SPOTIFY_SECRET')
+client_id = os.environ.get('SPOTIFY_CLIENT')
 auth_manager = SpotifyClientCredentials(client_id, client_sec)
 sp = spotipy.Spotify(auth_manager=auth_manager)
 playlists = sp.user_playlists(user_name)
-print("\n\nStaring download...\n")
+print("\n\nStarting download...\n")
 
 
 
@@ -73,19 +71,19 @@ print("\n\nStaring download...\n")
 ####################################################################
 
 while playlists:
-    for i, playlist in enumerate(playlists['items']):
+    for playlist in playlists['items']:
         print("PLAY LIST: " + playlist['name'])
-        playlist_path = path + "/" + playlist['name']
+        playlist_path = path + "/" + user_name + "/" + playlist['name']
         playlist_details = sp.playlist_items(playlist['uri'], fields=None, limit=100, offset=0, market=None)
-        for ii, playlist_detail in enumerate(playlist_details['items']):
+        for playlist_detail in playlist_details['items']:
             try:
                 artist_var = playlist_detail['track']['artists'][0]['name']
                 song_var = playlist_detail['track']['name']
                 print("artist: " + artist_var + " song: " + song_var)
                 yout_phrase = artist_var + " " + song_var + " official"
-                customSearch = CustomSearch(yout_phrase, VideoSortOrder.relevance, limit = 1)
-                song_url = customSearch.result()['result'][0]['link']
-                print(customSearch.result()['result'][0]['link'])
+                custom_search = CustomSearch(yout_phrase, VideoSortOrder.relevance, limit = 1)
+                song_url = custom_search.result()['result'][0]['link']
+                print(custom_search.result()['result'][0]['link'])
                 you_tube_downloader(song_url, playlist_path)
             except:
                 print("could not download song")
@@ -93,3 +91,4 @@ while playlists:
         playlists = sp.next(playlists)
     else:
         playlists = None
+    print(user_name + " Completed")

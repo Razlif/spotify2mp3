@@ -1,14 +1,14 @@
-># Introduction
+# Introduction
 
 This project is intended to help you download spotify user playlists as mp3 files.
 
 The song names are exatrcted using the spotify api and then loacted and downloaded from youtube as mp3 files.
 
-* To run this project you will need to have a spotify PREMIUM account
+* To run this project you will need to have a paid spotify account in order to get your the client id and api key.
 
 ---
 
-># Installation
+# Installation
 
 First clone the project
 ```
@@ -20,13 +20,13 @@ pip3 install --user -r requirements.txt
 ```
 ---
 
-># Spotify Auth
+# Spotify Credentials
 
 To use the program you will need your spotify client id and your spotify secret key to be able to access the spotify api.
 
 To get them, follow these steps:
 
-Go to https://developer.spotify.com/dashboard/applications.
+Go to the [spotify developer section](https://developer.spotify.com/dashboard/applications)
 
 1. Log into your Spotify account.
 
@@ -40,14 +40,38 @@ Go to https://developer.spotify.com/dashboard/applications.
 
 ---
 
-># Run
-There are 2 ways to run the program. If you do
+# Setting up enviroment variables
+
+Next edit the .env file in the project folder and include the spotify credentials.
+```
+SPOTIFY_SECRET = "Your spotify secret key"
+SPOTIFY_CLIENT = "Your spotify client ID"
+```
+
+# Running the python script directly
+
+Now you can run the python script directly from the command line
 ```
 python3 spotify_to_mp3.py
 ```
-This will start an interactive version of the script that will prompt you to enter the download path, your client id, your client secret key and finally the spotify username that has the playlists to download.
+This will start an interactive version of the script that will prompt you to enter the download path and the spotify username that has the playlists to download.
 
-you can also run the program using command line arguments like so
+you can also input the arguments directly in the run command:
 ```
-python3 spotify_to_mp3.py --path <download path for the mp3 folders> --id  <spotify client id> --key  <spotify secret key> --uname <the spotify user name>
+python3 spotify_to_mp3.py --path <download path for the mp3 folders> --uname <the spotify user name>
 ```
+
+# Running the scrip on multiple users from the users.txt file
+
+You can also run the script on multiple users at one time.
+
+Simply update the users.txt file with a list of users to download from.
+>make sure to add each user name in a new line
+
+next run mark the main.sh file executable and run the script from the command line:
+```
+$ chmod +x main.sh
+$ ./main.sh <main download path>
+```
+>Make sure to include the main download path as the first positional argument
+Have Fun!
