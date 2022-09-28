@@ -1,7 +1,7 @@
 #!/bin/bash
 path=$1
 echo $path
-input="/home/jujiberry/spotify2mp3/users.txt"
+input="~/spotify2mp3/users.txt"
 while read -r line
 do
   user=$line
